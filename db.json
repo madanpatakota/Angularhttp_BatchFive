@@ -1,0 +1,63 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "Products": [
+    {
+      "id": 1,
+      "Device": "Levovo",
+      "Price": "45000"
+    },
+    {
+      "id": 2,
+      "Device": "HP",
+      "Price": "50000"
+    },
+    {
+      "id": 3,
+      "Device": "Dell",
+      "Price": "55000"
+    },
+    {
+      "id": 4,
+      "Device": "Acer",
+      "Price": "60000"
+    },
+    {
+      "id": 5,
+      "Device": "Dell - Second Version",
+      "Price": "100000"
+    },
+    {
+      "id": 6,
+      "Device": "Acer - Second Version",
+      "Price": "58000"
+    },
+    {
+      "id": 7,
+      "Device": "HP - Second Version",
+      "Price": "59000"
+    }
+  ],
+  "movies": [
+    {
+      "id": 1,
+      "Device": "Avatar",
+      "Price": "1500"
+    }
+  ]
+}
