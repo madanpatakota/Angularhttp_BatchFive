@@ -36,6 +36,9 @@ export class AppComponent implements OnInit {
     // })
   }
 
+
+  //username = "madan" paswword - "Q1234$"
+
   proudctsResource = 'http://localhost:3000/Products';
   ngOnInit() {
     // this.httpclient
@@ -44,10 +47,21 @@ export class AppComponent implements OnInit {
     //     console.log(response);
     //     this.postsData = response;
     //   });
-    this.httpclient.get(this.proudctsResource).subscribe((response) => {
-      console.log('my own API related data ', response);
-      this.productsData = response;
-    });
+    this.httpclient
+      .get(this.proudctsResource, {
+        headers: {
+          companyName: 'Misard',
+          information: 'Online teachying portal',
+        },
+        params : {     
+          location : "Banoglore",
+          teamSize : 10
+        },
+      })
+      .subscribe((response) => {
+        console.log('my own API related data ', response);
+        this.productsData = response;
+      });
   }
 
   //proudctsResourceByID = 'http://localhost:3000/Products/3';
@@ -64,10 +78,17 @@ export class AppComponent implements OnInit {
       });
   }
 
+  // {
+  //   proudctName : text1box.value
+  //   proudctID :  text1box.value
+  //   proudctName : <>
+  //   proudctName : <>
+  //   proudctName : <>
+  // }
+
   evtCreate() {
     this.httpclient
       .post(this.proudctsResource, {
-        id: 7,
         Device: 'HP - Second Version',
         Price: '59000',
       })
@@ -76,10 +97,45 @@ export class AppComponent implements OnInit {
       });
   }
 
-  evtGetALL(){
+  evtGetALL() {
     this.httpclient.get(this.proudctsResource).subscribe((response) => {
       this.productsData = response;
     });
+  }
+
+  evtUpdate(textID: HTMLInputElement) {
+    let textvalue = textID.value;
+
+    this.httpclient
+      .put(this.proudctsResource + '/' + textvalue, {
+        Device: 'Updated',
+        Price: '20000',
+      })
+      .subscribe((response) => {
+        console.log(response);
+      });
+  }
+
+  evtPatch(textID: HTMLInputElement) {
+    let textvalue = textID.value;
+
+    this.httpclient
+      .patch(this.proudctsResource + '/' + textvalue, {
+        Price: '20000',
+      })
+      .subscribe((response) => {
+        console.log(response);
+      });
+  }
+
+  evtDelete(textID: HTMLInputElement) {
+    let textvalue = textID.value;
+
+    this.httpclient
+      .delete(this.proudctsResource + '/' + textvalue)
+      .subscribe((response) => {
+        console.log(response);
+      });
   }
 
   // 1. Once we have to get the information from below api

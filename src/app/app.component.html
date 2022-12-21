@@ -45,7 +45,7 @@
       <input type="text" class="form-control" #textID />
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-8">
       <button class="btn btn-primary" (click)="evtGetProductsByID(textID)">
         Get By ID
       </button>
@@ -54,7 +54,23 @@
 
       <button class="btn btn-primary" (click)="evtCreate()">Create</button> |
 
-      <button class="btn btn-warning" (click)="evtGetALL()">GetAll</button>
+      <button class="btn btn-warning" (click)="evtGetALL()">GetAll</button> |
+
+      <button class="btn btn-secondary" (click)="evtUpdate(textID)">
+        Update
+      </button>
+      |
+
+      <button class="btn btn-secondary" (click)="evtPatch(textID)">
+        Patch
+      </button>
+      |
+
+      <button class="btn btn-danger" (click)="evtDelete(textID)">
+        Delete
+      </button>
+
+
     </div>
   </div>
 </div>
